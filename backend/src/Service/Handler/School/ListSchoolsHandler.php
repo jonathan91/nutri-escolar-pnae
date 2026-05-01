@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\School;
 
+use App\Service\Query\School\ListSchoolsQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\School;
 use Doctrine\ORM\EntityManagerInterface;

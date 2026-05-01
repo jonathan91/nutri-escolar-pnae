@@ -23,8 +23,6 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: nutri_pnae_backend
-    ports:
-      - "8000:8000"
     volumes:
       - ./backend:/var/www/html
     depends_on:
@@ -41,11 +39,11 @@ services:
     networks:
       - nutri_network
 
-  frontend:
+  nginx:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: nutri_pnae_frontend
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: nutri_pnae_nginx
     ports:
       - "4200:80"
     depends_on:

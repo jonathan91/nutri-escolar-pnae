@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Food;
 
+use App\Service\Query\Food\ListCategoriesQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Repository\FoodRepository;
 

@@ -1,7 +1,6 @@
 FROM php:8.2-fpm-alpine
 
 RUN apk add --no-cache \
-    nginx \
     libpq-dev \
     libzip-dev \
     icu-dev \
@@ -30,11 +29,8 @@ RUN mkdir -p config/jwt \
 RUN mkdir -p var/cache var/log \
     && chown -R www-data:www-data var
 
-COPY docker/nginx/default.conf /etc/nginx/http.d/default.conf
 COPY docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
-COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
 
-EXPOSE 8000
+EXPOSE 9000
 
-CMD ["/usr/local/bin/entrypoint.sh"]
+CMD ["php-fpm"]

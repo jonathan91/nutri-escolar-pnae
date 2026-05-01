@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Dashboard;
 
+use App\Service\Query\Dashboard\GetDashboardQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\Menu;
 use App\Entity\Recipe;

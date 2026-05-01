@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Dashboard;
 
+use App\Service\Query\Dashboard\GetReferencesQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Provider\NutritionalReferenceService;
 
