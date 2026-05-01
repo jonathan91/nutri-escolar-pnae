@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Recipe;
 
+use App\Service\Query\Recipe\GetRecipeQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\Recipe;
 use App\Provider\NutritionalCalculationService;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Recipe;
 
+use App\Service\Command\Recipe\UpdateRecipeCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\Food;
 use App\Entity\Recipe;

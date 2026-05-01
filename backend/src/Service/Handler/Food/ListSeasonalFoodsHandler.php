@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Food;
 
+use App\Service\Query\Food\ListSeasonalFoodsQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\Food;
 use Doctrine\ORM\EntityManagerInterface;

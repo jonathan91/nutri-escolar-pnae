@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\School;
 
+use App\Service\Command\School\DeleteStudentGroupCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\StudentGroup;
 use Doctrine\ORM\EntityManagerInterface;

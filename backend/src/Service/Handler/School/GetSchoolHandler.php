@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\School;
 
+use App\Service\Query\School\GetSchoolQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\School;
 use App\Entity\StudentGroup;

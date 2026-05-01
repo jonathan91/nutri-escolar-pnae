@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\School;
 
+use App\Service\Command\School\CreateSchoolCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\School;
 use Doctrine\ORM\EntityManagerInterface;

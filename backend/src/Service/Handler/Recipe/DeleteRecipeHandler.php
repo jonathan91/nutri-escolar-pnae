@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Recipe;
 
+use App\Service\Command\Recipe\DeleteRecipeCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\Recipe;
 use Doctrine\ORM\EntityManagerInterface;

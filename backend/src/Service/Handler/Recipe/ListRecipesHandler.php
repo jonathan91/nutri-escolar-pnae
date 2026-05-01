@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Recipe;
 
+use App\Service\Query\Recipe\ListRecipesQuery;
 use App\Service\Handler\QueryHandlerInterface;
 use App\Entity\Recipe;
 use Doctrine\ORM\EntityManagerInterface;

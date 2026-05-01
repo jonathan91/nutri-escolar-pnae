@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Menu;
 
+use App\Service\Command\Menu\CreateMenuCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\Food;
 use App\Entity\Menu;

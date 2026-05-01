@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service\Handler\Auth;
 
+use App\Service\Command\Auth\RegisterUserCommand;
 use App\Service\Handler\CommandHandlerInterface;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
