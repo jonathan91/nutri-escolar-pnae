@@ -2,16 +2,16 @@
 
 namespace App\Controller;
 
-use App\CQRS\Command\Recipe\CreateRecipeCommand;
-use App\CQRS\Command\Recipe\CreateRecipeHandler;
-use App\CQRS\Command\Recipe\DeleteRecipeCommand;
-use App\CQRS\Command\Recipe\DeleteRecipeHandler;
-use App\CQRS\Command\Recipe\UpdateRecipeCommand;
-use App\CQRS\Command\Recipe\UpdateRecipeHandler;
-use App\CQRS\Query\Recipe\GetRecipeHandler;
-use App\CQRS\Query\Recipe\GetRecipeQuery;
-use App\CQRS\Query\Recipe\ListRecipesHandler;
-use App\CQRS\Query\Recipe\ListRecipesQuery;
+use App\Service\Command\Recipe\CreateRecipeCommand;
+use App\Service\Handler\Recipe\CreateRecipeHandler;
+use App\Service\Command\Recipe\DeleteRecipeCommand;
+use App\Service\Handler\Recipe\DeleteRecipeHandler;
+use App\Service\Command\Recipe\UpdateRecipeCommand;
+use App\Service\Handler\Recipe\UpdateRecipeHandler;
+use App\Service\Handler\Recipe\GetRecipeHandler;
+use App\Service\Query\Recipe\GetRecipeQuery;
+use App\Service\Handler\Recipe\ListRecipesHandler;
+use App\Service\Query\Recipe\ListRecipesQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

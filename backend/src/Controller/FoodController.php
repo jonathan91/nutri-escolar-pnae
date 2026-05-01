@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use App\CQRS\Query\Food\GetFoodHandler;
-use App\CQRS\Query\Food\GetFoodQuery;
-use App\CQRS\Query\Food\ListCategoriesHandler;
-use App\CQRS\Query\Food\ListCategoriesQuery;
-use App\CQRS\Query\Food\ListFoodsHandler;
-use App\CQRS\Query\Food\ListFoodsQuery;
-use App\CQRS\Query\Food\ListSeasonalFoodsHandler;
-use App\CQRS\Query\Food\ListSeasonalFoodsQuery;
+use App\Service\Handler\Food\GetFoodHandler;
+use App\Service\Query\Food\GetFoodQuery;
+use App\Service\Handler\Food\ListCategoriesHandler;
+use App\Service\Query\Food\ListCategoriesQuery;
+use App\Service\Handler\Food\ListFoodsHandler;
+use App\Service\Query\Food\ListFoodsQuery;
+use App\Service\Handler\Food\ListSeasonalFoodsHandler;
+use App\Service\Query\Food\ListSeasonalFoodsQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
