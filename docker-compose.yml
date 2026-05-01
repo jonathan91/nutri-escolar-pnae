@@ -1,0 +1,61 @@
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: nutri_pnae_db
+    environment:
+      POSTGRES_DB: nutri_pnae
+      POSTGRES_USER: nutri_user
+      POSTGRES_PASSWORD: nutri_secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - nutri_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nutri_user -d nutri_pnae"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nutri_pnae_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      database:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgresql://nutri_user:nutri_secret@database:5432/nutri_pnae?serverVersion=16&charset=utf8"
+      APP_ENV: dev
+      APP_SECRET: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+      JWT_SECRET_KEY: '%kernel.project_dir%/config/jwt/private.pem'
+      JWT_PUBLIC_KEY: '%kernel.project_dir%/config/jwt/public.pem'
+      JWT_PASSPHRASE: nutri_jwt_passphrase
+      CORS_ALLOW_ORIGIN: '^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'
+    networks:
+      - nutri_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: nutri_pnae_frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - nutri_network
+
+volumes:
+  pg_data:
+
+networks:
+  nutri_network:
+    driver: bridge
