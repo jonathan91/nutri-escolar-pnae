@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use App\CQRS\Command\Menu\CreateMenuCommand;
-use App\CQRS\Command\Menu\CreateMenuHandler;
-use App\CQRS\Command\Menu\DeleteMenuCommand;
-use App\CQRS\Command\Menu\DeleteMenuHandler;
-use App\CQRS\Query\Menu\GetMenuHandler;
-use App\CQRS\Query\Menu\GetMenuQuery;
-use App\CQRS\Query\Menu\ListMenusHandler;
-use App\CQRS\Query\Menu\ListMenusQuery;
+use App\Service\Command\Menu\CreateMenuCommand;
+use App\Service\Handler\Menu\CreateMenuHandler;
+use App\Service\Command\Menu\DeleteMenuCommand;
+use App\Service\Handler\Menu\DeleteMenuHandler;
+use App\Service\Handler\Menu\GetMenuHandler;
+use App\Service\Query\Menu\GetMenuQuery;
+use App\Service\Handler\Menu\ListMenusHandler;
+use App\Service\Query\Menu\ListMenusQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

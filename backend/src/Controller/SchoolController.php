@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use App\CQRS\Command\School\CreateSchoolCommand;
-use App\CQRS\Command\School\CreateSchoolHandler;
-use App\CQRS\Command\School\CreateStudentGroupCommand;
-use App\CQRS\Command\School\CreateStudentGroupHandler;
-use App\CQRS\Command\School\DeleteSchoolCommand;
-use App\CQRS\Command\School\DeleteSchoolHandler;
-use App\CQRS\Command\School\DeleteStudentGroupCommand;
-use App\CQRS\Command\School\DeleteStudentGroupHandler;
-use App\CQRS\Command\School\UpdateSchoolCommand;
-use App\CQRS\Command\School\UpdateSchoolHandler;
-use App\CQRS\Query\School\GetSchoolHandler;
-use App\CQRS\Query\School\GetSchoolQuery;
-use App\CQRS\Query\School\ListSchoolsHandler;
-use App\CQRS\Query\School\ListSchoolsQuery;
+use App\Service\Command\School\CreateSchoolCommand;
+use App\Service\Handler\School\CreateSchoolHandler;
+use App\Service\Command\School\CreateStudentGroupCommand;
+use App\Service\Handler\School\CreateStudentGroupHandler;
+use App\Service\Command\School\DeleteSchoolCommand;
+use App\Service\Handler\School\DeleteSchoolHandler;
+use App\Service\Command\School\DeleteStudentGroupCommand;
+use App\Service\Handler\School\DeleteStudentGroupHandler;
+use App\Service\Command\School\UpdateSchoolCommand;
+use App\Service\Handler\School\UpdateSchoolHandler;
+use App\Service\Handler\School\GetSchoolHandler;
+use App\Service\Query\School\GetSchoolQuery;
+use App\Service\Handler\School\ListSchoolsHandler;
+use App\Service\Query\School\ListSchoolsQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\CQRS\Command\Auth\RegisterUserCommand;
-use App\CQRS\Command\Auth\RegisterUserHandler;
+use App\Service\Command\Auth\RegisterUserCommand;
+use App\Service\Handler\Auth\RegisterUserHandler;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

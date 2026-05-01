@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-use App\CQRS\Query\Dashboard\GetDashboardHandler;
-use App\CQRS\Query\Dashboard\GetDashboardQuery;
-use App\CQRS\Query\Dashboard\GetMenuAnalysisHandler;
-use App\CQRS\Query\Dashboard\GetMenuAnalysisQuery;
-use App\CQRS\Query\Dashboard\GetReferencesHandler;
-use App\CQRS\Query\Dashboard\GetReferencesQuery;
+use App\Service\Handler\Dashboard\GetDashboardHandler;
+use App\Service\Query\Dashboard\GetDashboardQuery;
+use App\Service\Handler\Dashboard\GetMenuAnalysisHandler;
+use App\Service\Query\Dashboard\GetMenuAnalysisQuery;
+use App\Service\Handler\Dashboard\GetReferencesHandler;
+use App\Service\Query\Dashboard\GetReferencesQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
