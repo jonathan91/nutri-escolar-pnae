@@ -31,6 +31,53 @@ Aplicacao web para nutricionistas RT (Responsaveis Tecnicos) que automatiza o ca
 - Identificacao de alergenos (gluten, lactose)
 - Filtro de alimentos sazonais (agricultura familiar)
 
+## Configuracao e Credenciais
+
+### Banco de Dados (PostgreSQL)
+
+| Parametro | Valor |
+|-----------|-------|
+| Host | `database` (interno Docker) / `localhost:5432` (externo) |
+| Database | `nutri_pnae` |
+| Usuario | `nutri_user` |
+| Senha | `nutri_secret` |
+
+### JWT (Autenticacao)
+
+| Parametro | Valor |
+|-----------|-------|
+| Passphrase | `nutri_jwt_passphrase` |
+| Chave Privada | `config/jwt/private.pem` (gerada automaticamente no build) |
+| Chave Publica | `config/jwt/public.pem` (gerada automaticamente no build) |
+
+### Aplicacao (Symfony)
+
+| Parametro | Valor |
+|-----------|-------|
+| APP_ENV | `dev` |
+| APP_SECRET | `a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4` |
+| CORS_ALLOW_ORIGIN | `localhost` e `127.0.0.1` (qualquer porta) |
+
+### Portas dos Servicos
+
+| Servico | Porta | Descricao |
+|---------|-------|-----------|
+| Nginx Gateway | `4200` | Ponto de entrada unico (frontend + API) |
+| Backend (Nginx + PHP-FPM) | `8000` (interna) | API backend self-contained |
+| PHP-FPM | `9000` (localhost no container) | Processa requisicoes PHP |
+| PostgreSQL | `5432` | Banco de dados |
+
+### Arquitetura dos Containers
+
+```
+Cliente --> Nginx Gateway (:4200) --> Backend Nginx (:8000) --> PHP-FPM (:9000 localhost)
+                |                          |
+                |-- Frontend Angular       |-- API Symfony
+                    (arquivos estaticos)       (via FastCGI)
+                                           |
+                                           --> PostgreSQL (:5432)
+```
+
 ## Como Executar
 
 ### Com Docker (Recomendado)
@@ -40,8 +87,8 @@ docker compose up -d --build
 ```
 
 Acesse:
-- **Frontend**: http://localhost:4200
-- **Backend API**: http://localhost:8000/api
+- **Aplicacao**: http://localhost:4200
+- **API**: http://localhost:4200/api
 
 ### Setup Inicial (apos primeiro start)
 
@@ -52,9 +99,27 @@ docker compose exec backend php bin/console doctrine:migrations:migrate --no-int
 # Importar dados da tabela TACO
 docker compose exec backend php bin/console app:import-taco
 
-# Gerar chaves JWT
+# Gerar chaves JWT (caso nao tenham sido geradas no build)
 docker compose exec backend php bin/console lexik:jwt:generate-keypair --skip-if-exists
 ```
+
+### Criando um Usuario
+
+```bash
+curl -X POST http://localhost:4200/api/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"seu@email.com", "password":"suaSenha", "name":"Seu Nome"}'
+```
+
+### Autenticando (Login)
+
+```bash
+curl -X POST http://localhost:4200/api/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"seu@email.com", "password":"suaSenha"}'
+```
+
+O login retorna um token JWT que deve ser enviado no header `Authorization: Bearer <token>` em todas as requisicoes autenticadas.
 
 ### Desenvolvimento Local
 
